@@ -36,11 +36,12 @@ The base url of the Gitlab server. Ex: `http://mygitlab.example.com`
 This observer can create gitlab pipeline tasks. It will create a trigger named "concordTrigger" in the project<br>
 if it does not exist, and start the trigger pipeline.
 
-There are two task modes.<br>
-Async mode: Starts the task only. It is the job of the spawned pipeline to update the status in Concord regarding completion or failure.
-Watcher mode: Starts the task, then monitors the status. The observer will update Concord at the end of the run.
+There are two task modes:
+- Async mode: Starts the task only. It is the job of the spawned pipeline to update the status in Concord regarding completion or failure.
+- Watcher mode: Starts the task, then monitors the status. The observer will update Concord at the end of the run.
 
 Sample jsonrpc payloads to Concord for pipelines:
+
 Async:<br>
 ```
 {"jsonrpc": "2.0", "method": "addTask", "params": {
@@ -64,7 +65,7 @@ Async:<br>
 
 Watcher mode:<br>
 The observer defaults to async: false, removing the async variable or setting it to false will
-start the task in watcher mode.
+start the task in Watcher mode.
 ```
 {"jsonrpc": "2.0", "method": "addTask", "params": {
 	"key": "my-project", "meta": {
@@ -84,6 +85,9 @@ start the task in watcher mode.
         },"priority": 2.1}, "id":1}
 ```
 
+Resulting pipeline in Gitlab:
+![](images/pipeline-task.png)
+
 The observer can also create projects, but that's all at the moment.
 Project deletion is a future feature.
 The jsonrpc payload for projects is much simpler, but could change a lot.
@@ -100,3 +104,5 @@ The jsonrpc payload for projects is much simpler, but could change a lot.
       },"priority": 2.1}, "id":1}
 ```
 
+Resulting project in Gitlab:
+![](images/project-task.png)
