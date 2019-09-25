@@ -45,7 +45,8 @@ Sample jsonrpc payloads to Concord for pipelines:
 Async:<br>
 ```
 {"jsonrpc": "2.0", "method": "addTask", "params": {
-	"key": "my-project", "meta": {
+	"key": "my-project",
+  "meta": {
     "service": "gitlab",
     "type": "pipeline",
 	  "resource": "my-project",
@@ -60,7 +61,8 @@ Async:<br>
             "mytriggervar": "helloworld",
             "target": "blah.example.com"}
           }
-        },"priority": 2.1}, "id":1}
+        },
+  "priority": 2.1}, "id":1}
 ```
 
 Watcher mode:<br>
@@ -68,7 +70,8 @@ The observer defaults to async: false, removing the async variable or setting it
 start the task in Watcher mode.
 ```
 {"jsonrpc": "2.0", "method": "addTask", "params": {
-	"key": "my-project", "meta": {
+	"key": "my-project",
+  "meta": {
     "service": "gitlab",
     "type": "pipeline",
 	  "resource": "my-project",
@@ -82,7 +85,7 @@ start the task in Watcher mode.
             "myothertriggervar": "helloworld"
             "target": "blah.example.com"}
           }
-        },"priority": 2.1}, "id":1}
+  },"priority": 2.1}, "id":1}
 ```
 
 Resulting pipeline in Gitlab:
@@ -94,14 +97,15 @@ The jsonrpc payload for projects is much simpler, but could change a lot.
 
 ```
 {"jsonrpc": "2.0", "method": "addTask", "params": {
-	"key": "blah4.cisco.com", "meta": {
+	"key": "blah4.cisco.com",
+  "meta": {
     "service": "gitlab",
     "type": "project",
-	"resource": "my-new-project",
-    "options": {
-    	"project_namespace": "root",
-    	"project_name": "my-new-project"}
-      },"priority": 2.1}, "id":1}
+	  "resource": "my-new-project",
+      "options": {
+    	  "project_namespace": "root",
+    	  "project_name": "my-new-project"}
+  },"priority": 2.1}, "id":1}
 ```
 
 Resulting project in Gitlab:
