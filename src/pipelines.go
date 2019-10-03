@@ -219,6 +219,9 @@ func (pc *PipelineClient) StartTask(ct *ConcordTask) (err error) {
 		pipeline, err := pc.TriggerPipeline(pt)
 
 		if err != nil {
+			log.Printf("Failed to start task in %s err: %s", ct.Id, err)
+			ct.Status = TaskStatusError
+			pc.CompleteTask(ct)
 			return err
 		}
 
