@@ -52,13 +52,13 @@ type JsonRPCServiceBroker struct{}
 
 // Concord specific task data derived from Event.meta
 type ConcordTask struct {
-	Id       string          `json:"_id"`
-	Status   string          `json:"_status"`
-	Service  string          `json:"service"`
-	Resource string          `json:"resource"`
-	Type     string          `json:"type"`
-	Async    bool            `json:"async"` // Toggles whether the observer should watch and handle status.
-	Options  json.RawMessage `json:"options"`
+	Id      string          `json:"_id"`
+	Status  string          `json:"_status"`
+	Key     string          `json:"_key"`
+	Service string          `json:"service"`
+	Type    string          `json:"type"`
+	Async   bool            `json:"async"` // Toggles whether the observer should watch and handle status.
+	Options json.RawMessage `json:"options"`
 }
 
 func (t *JsonRPCServiceBroker) Call(

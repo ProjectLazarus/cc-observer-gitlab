@@ -19,8 +19,8 @@ func CheckEvent(message json.RawMessage) {
 	if ct.Service != "gitlab" {
 		return
 	}
-	log.Printf("Received event: ID: %s Type: %s Resource: %s Status: %s\n",
-		ct.Id, ct.Type, ct.Resource, ct.Status)
+	log.Printf("Received event: ID: %s Type: %s Status: %s\n",
+		ct.Id, ct.Type, ct.Status)
 	gl, err := NewGitlabClient(ct.Type)
 	if err != nil {
 		log.Printf("Could not create Gitlab client Error: %q", err)

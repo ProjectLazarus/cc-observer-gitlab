@@ -29,7 +29,7 @@ func (pc *ProjectClient) StartTask(ct *ConcordTask) error {
 		log.Printf("Status is %s returning because it's not pending", ct.Status)
 		return nil
 	}
-	if pc.RequestAck(ct.Resource) {
+	if pc.RequestAck(ct.Key) {
 		var pt ProjectTask
 		err := json.Unmarshal(ct.Options, &pt)
 

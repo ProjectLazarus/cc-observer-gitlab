@@ -49,7 +49,6 @@ Async:<br>
   "meta": {
     "service": "gitlab",
     "type": "pipeline",
-	  "resource": "my-project",
 	  "async": true,
       "options": {
     	  "project": {
@@ -74,7 +73,6 @@ start the task in Watcher mode.
   "meta": {
     "service": "gitlab",
     "type": "pipeline",
-	  "resource": "my-project",
       "options": {
     	  "project": {
             "id": "6"
@@ -101,7 +99,6 @@ The jsonrpc payload for projects is much simpler, but could change a lot.
   "meta": {
     "service": "gitlab",
     "type": "project",
-	  "resource": "my-new-project",
       "options": {
     	  "project_namespace": "root",
     	  "project_name": "my-new-project"}
