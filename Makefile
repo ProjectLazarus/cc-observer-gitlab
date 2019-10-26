@@ -3,7 +3,7 @@ build:
 	@docker run \
 		--rm \
 		-e CGO_ENABLED=0 \
-		-v $(PWD):/usr/src/concord-observer-gitlab \
+		-v $(PWD)/src:/usr/src/concord-observer-gitlab \
 		-w /usr/src/concord-observer-gitlab \
 		golang /bin/sh -c "go get -v -d && go build -a -installsuffix cgo -o main"
 	@docker build -t concord/observer-gitlab .
